@@ -6,7 +6,7 @@
 /*   By: jodone <jodone@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 10:10:07 by jimbow            #+#    #+#             */
-/*   Updated: 2026/05/04 16:05:11 by jodone           ###   ########.fr       */
+/*   Updated: 2026/05/07 12:09:53 by jodone           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ int main()
     for (int i = 0; i < 100; i++)
         d.attack("dummy");
 
+    std::cout << std::endl;
+
+    DiamondTrap* e = new DiamondTrap("Bob");
+    delete e;
     std::cout << std::endl;
 
     return 0;

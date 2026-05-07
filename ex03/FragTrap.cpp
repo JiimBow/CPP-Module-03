@@ -6,7 +6,7 @@
 /*   By: jodone <jodone@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:48:09 by jimbow            #+#    #+#             */
-/*   Updated: 2026/05/05 10:15:44 by jodone           ###   ########.fr       */
+/*   Updated: 2026/05/07 12:00:02 by jodone           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,36 @@
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	hitPoints = 100;
-	energyPoints = 100;
-	attackDamage = 30;
+	_hitPoints = 100;
+	_energyPoints = 100;
+	_attackDamage = 30;
 	std::cout << "FragTrap " << name << " is born !" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& copy) : ClapTrap(copy)
 {
 	*this = copy;
+	std::cout << "FragTrap's copy " << _name << " is born !" << std::endl;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& copy)
 {
 	if (this != &copy)
-		Name = copy.Name;
+	{
+		_name = copy._name;
+		_hitPoints = copy._hitPoints;
+		_energyPoints = copy._energyPoints;
+		_attackDamage = copy._attackDamage;
+	}
 	return *this;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap " << Name << " return in is mother !" << std::endl;
+	std::cout << "FragTrap " << _name << " return in is mother !" << std::endl;
 }
 
 void	FragTrap::highFivesGuys()
 {
-	std::cout << "FragTrap " << Name << " : HEY HEY ! Give me a HighFive ! o/" << std::endl;
+	std::cout << _name << " : HEY HEY ! Give me a HighFive ! o/" << std::endl;
 }

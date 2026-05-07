@@ -6,7 +6,7 @@
 /*   By: jodone <jodone@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 12:02:13 by jimbow            #+#    #+#             */
-/*   Updated: 2026/05/05 10:15:39 by jodone           ###   ########.fr       */
+/*   Updated: 2026/05/07 12:13:37 by jodone           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,35 @@
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
-	Name = name;
-	hitPoints = FragTrap::hitPoints;
-	energyPoints = ScavTrap::energyPoints;
-	attackDamage = FragTrap::attackDamage;
+	_name = name;
+	_hitPoints = FragTrap::_hitPoints;
+	_energyPoints = ScavTrap::_energyPoints;
+	_attackDamage = FragTrap::_attackDamage;
 	
-	std::cout << "DiamondTrap " << Name << " is born !" << std::endl;
+	std::cout << "DiamondTrap " << _name << " is born !" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& copy) : ClapTrap(copy), ScavTrap(copy), FragTrap(copy)
 {
 	*this = copy;
+	std::cout << "DiamondTrap's copy " << _name << " is born !" << std::endl;
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& copy)
 {
 	if (this != &copy)
-		Name = copy.Name;
+	{
+		_name = copy._name;
+		_hitPoints = copy._hitPoints;
+		_energyPoints = copy._energyPoints;
+		_attackDamage = copy._attackDamage;
+	}
 	return *this;
 }
 
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << "DiamondTrap " << Name << " return in is mother !" << std::endl;
+	std::cout << "DiamondTrap " << _name << " return in his mother !" << std::endl;
 }
 
 void	DiamondTrap::attack(const std::string& target)
@@ -47,5 +53,5 @@ void	DiamondTrap::attack(const std::string& target)
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << "I am " << Name << " and my ClapTrap name is " << ClapTrap::Name << std::endl;
+	std::cout << "I am " << _name << " and my ClapTrap name is " << ClapTrap::_name << std::endl;
 }

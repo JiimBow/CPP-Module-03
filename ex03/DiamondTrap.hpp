@@ -6,7 +6,7 @@
 /*   By: jodone <jodone@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 12:02:04 by jimbow            #+#    #+#             */
-/*   Updated: 2026/05/04 15:08:35 by jodone           ###   ########.fr       */
+/*   Updated: 2026/05/07 12:04:54 by jodone           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class DiamondTrap : public ScavTrap, public FragTrap
 {
 private:
-	std::string Name;
+	std::string _name;
 public:
 	DiamondTrap(std::string name);
 	DiamondTrap(const DiamondTrap& copy);

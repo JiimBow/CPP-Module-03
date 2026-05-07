@@ -6,7 +6,7 @@
 /*   By: jodone <jodone@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 10:11:03 by jimbow            #+#    #+#             */
-/*   Updated: 2026/05/04 15:11:54 by jodone           ###   ########.fr       */
+/*   Updated: 2026/05/07 11:43:52 by jodone           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 class ClapTrap
 {
 private:
-	std::string Name;
-	int			hitPoints;
-	int			energyPoints;
-	int			attackDamage;
+	std::string _name;
+	int			_hitPoints;
+	int			_energyPoints;
+	int			_attackDamage;
 public:
-	ClapTrap(std::string newName);
+	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap& copy);
 	ClapTrap& operator=(const ClapTrap& copy);
 	~ClapTrap();

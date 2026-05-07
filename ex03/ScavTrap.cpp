@@ -6,7 +6,7 @@
 /*   By: jodone <jodone@student.42angouleme.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/30 11:07:06 by jimbow            #+#    #+#             */
-/*   Updated: 2026/05/05 10:15:48 by jodone           ###   ########.fr       */
+/*   Updated: 2026/05/07 12:07:46 by jodone           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,49 @@
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	hitPoints = 100;
-	energyPoints = 50;
-	attackDamage = 20;
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
 	std::cout << "ScavTrap " << name << " is born !" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& copy) : ClapTrap(copy)
 {
 	*this = copy;
+	std::cout << "ScavTrap's copy " << _name << " is born !" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& copy)
 {
 	if (this != &copy)
-		Name = copy.Name;
+	{
+		_name = copy._name;
+		_hitPoints = copy._hitPoints;
+		_energyPoints = copy._energyPoints;
+		_attackDamage = copy._attackDamage;
+	}
 	return *this;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap " << Name << " return in is mother !" << std::endl;
+	std::cout << "ScavTrap " << _name << " return in his mother !" << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)
 {
-	if (energyPoints > 0 && hitPoints > 0)
+	if (_energyPoints > 0 && _hitPoints > 0)
 	{
-		energyPoints--;
-		std::cout	<< "ScavTrap " << Name << " attacks " << target
-					<< ", causing " << attackDamage << " points of damage !"
+		_energyPoints--;
+		std::cout	<< _name << " destroy " << target
+					<< ", causing " << _attackDamage << " points of damage !"
 					<< std::endl;
 	}
 	else
-		std::cout	<< "ScavTrap " << Name << " is unable to attack T-T" << std::endl;
+		std::cout	<< _name << " forget how to attack" << std::endl;
 }
 
-void	ScavTrap::guardGate(void)
+void ScavTrap::guardGate(void)
 {
-	std::cout << "ScavTrap " << Name << " is now in Gate keeper mode !" << std::endl;
+	std::cout << _name << " is now in Gate keeper mode !" << std::endl;
 }
